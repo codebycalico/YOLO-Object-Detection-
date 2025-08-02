@@ -2,11 +2,15 @@ import socket
 import cv2
 from ultralytics import YOLO
 
-cap = cv2.VideoCapture(2)
+cap = cv2.VideoCapture(3)
 
 # Get width and height
-camWidth  = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-camHeight = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+#camWidth  = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+#camHeight = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+camWidth = 1280
+camHeight = 720
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, camWidth)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, camHeight)
 
 # communication to UDP socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
